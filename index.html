@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oke Oluwaseun | Web Developer</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #4f46e5, #9333ea);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #fff;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-in-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #4f46e5;
+    }
+
+    .about p {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .projects {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .skills {
+      text-align: center;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #4f46e5;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      nav a { display: inline-block; margin: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Oke Oluwaseun</h1>
+    <p>Web Developer • PHP • Python • WordPress</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I am a solution-focused web developer with expertise in PHP, Python, and WordPress. I build clean, dynamic, and purpose-driven websites that solve problems and deliver real results.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>SmartFarm Dashboard</h3>
+        <p>A PHP-based dashboard for monitoring farm data and climate trends.</p>
+        <a href="#">Live Demo</a>
+      </div>
+      <div class="project-card">
+        <h3>DevConnect API</h3>
+        <p>A Python-powered backend API for connecting developers across industries.</p>
+        <a href="#">GitHub Repo</a>
+      </div>
+      <div class="project-card">
+        <h3>BoldBrand Website</h3>
+        <p>Custom WordPress site for a personal brand strategist with animations and plugins.</p>
+        <a href="#">Visit Site</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>My Skills</h2>
+    <div>
+      <span class="skill-badge">PHP</span>
+      <span class="skill-badge">Python</span>
+      <span class="skill-badge">WordPress</span>
+      <span class="skill-badge">JavaScript</span>
+      <span class="skill-badge">HTML5</span>
+      <span class="skill-badge">CSS3</span>
+      <span class="skill-badge">MySQL</span>
+      <span class="skill-badge">Git</span>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="event.preventDefault(); alert('Message Sent!');">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Oke Oluwaseun. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Fade-in effect on scroll
+    const sections = document.querySelectorAll("section");
+
+    const reveal = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
+
+</body>
+</html>
