@@ -87,10 +87,22 @@
 
     .project-card {
       background: #fff;
-      padding: 20px;
+      padding: 0;
       border-radius: 10px;
+      overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-content {
+      padding: 20px;
     }
 
     .project-card:hover {
@@ -182,19 +194,28 @@
     <h2>Projects</h2>
     <div class="projects">
       <div class="project-card">
-        <h3>Lagos Business School</h3>
-        <p>The official website of the lagos business school built with PHP, WordPress and CSS</p>
-        <a href="lbs.edu.ng">View Website</a>
+        <img src="https://via.placeholder.com/400x180?text=Lagos+Business+School" alt="LBS">
+        <div class="project-content">
+          <h3>Lagos Business School</h3>
+          <p>The official website of the Lagos Business School built with PHP, WordPress and CSS.</p>
+          <a href="https://lbs.edu.ng" target="_blank">View Website</a>
+        </div>
       </div>
       <div class="project-card">
-        <h3>Rikka Group</h3>
-        <p>A website for Rikka group of company. </p>
-        <a href="https://rikkagroup.com/">View Website</a>
+        <img src="https://via.placeholder.com/400x180?text=Rikka+Group" alt="Rikka Group">
+        <div class="project-content">
+          <h3>Rikka Group</h3>
+          <p>A website for Rikka Group of Company.</p>
+          <a href="https://rikkagroup.com/" target="_blank">View Website</a>
+        </div>
       </div>
       <div class="project-card">
-        <h3>Centre for Public Sector Governance</h3>
-        <p>A website for Centre for Public Sector Governance. They are a pioneering subdivision of the Society for Corporate Governance Nigeria (SCGN) dedicated to promoting and developing best practices in public sector administration, governance, and leadership.</p>
-        <a href="https://publicsecgov.org/about-cpsg-2">Visit Site</a>
+        <img src="https://via.placeholder.com/400x180?text=CPSG" alt="CPSG">
+        <div class="project-content">
+          <h3>Centre for Public Sector Governance</h3>
+          <p>Website for a SCGN initiative focused on governance, leadership, and public sector reform.</p>
+          <a href="https://publicsecgov.org/about-cpsg-2" target="_blank">Visit Site</a>
+        </div>
       </div>
     </div>
   </section>
@@ -228,7 +249,6 @@
   </footer>
 
   <script>
-    // Fade-in effect on scroll
     const sections = document.querySelectorAll("section");
 
     const reveal = () => {
