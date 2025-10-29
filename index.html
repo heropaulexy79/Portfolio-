@@ -5,60 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Oke Oluwaseun | Web Developer</title>
   <style>
+    :root {
+      --color-bg: #0f172a;
+      --color-surface: #1e293b;
+      --color-primary: #60a5fa;
+      --color-primary-light: #93c5fd;
+      --color-text-light: #f8fafc;
+      --color-text-mid: #cbd5e1;
+      --color-text-dark: #94a3b8;
+    }
+
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text-light);
+      line-height: 1.6;
     }
 
-    header {
-      background: #1e293b;
-      text-align: center;
-      padding: 100px 20px 60px;
-    }
-
-    header h1 {
-      font-size: 3.2rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      opacity: 0.85;
-    }
-
+    /* --- Navigation --- */
     nav {
-      background: #1e293b;
-      padding: 14px 0;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1rem 0;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 100;
       border-bottom: 1px solid #334155;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     nav a {
-      margin: 0 20px;
-      color: #60a5fa;
+      margin: 0 1.25rem;
+      color: var(--color-primary);
       text-decoration: none;
       font-weight: 600;
+      font-size: 1rem;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #93c5fd;
+      color: var(--color-primary-light);
     }
 
-    section {
-      padding: 80px 20px;
+    /* --- Page Sections --- */
+    .container {
+      padding: 6rem 1.5rem;
       max-width: 1100px;
       margin: auto;
+    }
+
+    /* Animate sections on scroll */
+    section {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(30px);
       transition: all 0.6s ease-in-out;
     }
 
@@ -67,34 +78,57 @@
       transform: translateY(0);
     }
 
+    /* Section Heading */
     h2 {
       text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 30px;
-      color: #60a5fa;
+      margin-bottom: 3.5rem;
+      color: var(--color-primary);
       font-weight: 700;
     }
 
-    .about p {
+    /* --- Hero Section --- */
+    #hero {
+      background: var(--color-surface);
       text-align: center;
-      max-width: 750px;
-      margin: auto;
-      font-size: 1.15rem;
-      color: #cbd5e1;
+      padding: 6rem 1.5rem;
     }
 
-    .projects {
+    #hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text-light);
+    }
+
+    #hero .subtitle {
+      font-size: 1.4rem;
+      color: var(--color-primary);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    #hero .about-text {
+      font-size: 1.15rem;
+      color: var(--color-text-mid);
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* --- Projects Section --- */
+    .projects-grid {
       display: grid;
-      gap: 30px;
+      gap: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
 
     .project-card {
-      background: #1e293b;
+      background: var(--color-surface);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       transition: transform 0.4s ease, box-shadow 0.4s;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
@@ -106,69 +140,133 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
+      object-position: top; /* Show top of screenshots */
     }
 
     .project-content {
-      padding: 25px;
+      padding: 1.75rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-content h3 {
-      margin-bottom: 10px;
-      font-size: 1.4rem;
-      color: #f8fafc;
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+      color: var(--color-text-light);
     }
 
     .project-content p {
       font-size: 1rem;
-      margin-bottom: 12px;
-      color: #cbd5e1;
+      margin-bottom: 1rem;
+      color: var(--color-text-mid);
+      flex-grow: 1;
+    }
+    
+    .project-tags {
+      margin-bottom: 1.25rem;
+    }
+    
+    .tag {
+      display: inline-block;
+      background: #334155;
+      color: var(--color-primary-light);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 6px;
     }
 
     .project-content a {
       text-decoration: none;
-      color: #93c5fd;
+      color: var(--color-primary-light);
       font-weight: bold;
+      transition: color 0.3s;
     }
 
-    .skills {
+    .project-content a:hover {
+      color: var(--color-primary);
+    }
+
+    /* --- Skills Section --- */
+    .skills-container {
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
+    }
+    
+    .skill-category {
+      margin-bottom: 2.5rem;
+    }
+    
+    .skill-category h3 {
+      color: var(--color-text-mid);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
     }
 
     .skill-badge {
       display: inline-block;
-      background: #334155;
-      color: #93c5fd;
-      padding: 10px 18px;
+      background: var(--color-surface);
+      color: var(--color-primary-light);
+      padding: 10px 20px;
       border-radius: 30px;
-      margin: 8px;
       font-size: 1rem;
       font-weight: 600;
+      border: 1px solid #334155;
+      transition: background 0.3s;
+    }
+    
+    .skill-badge:hover {
+        background: #334155;
     }
 
+    /* --- Contact Section --- */
     .contact form {
       max-width: 650px;
       margin: auto;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 1.25rem;
     }
 
     .contact input,
     .contact textarea {
-      padding: 14px;
+      padding: 1rem;
       border-radius: 10px;
       border: 1px solid #475569;
       font-size: 1rem;
-      background: #0f172a;
-      color: #f8fafc;
+      background: var(--color-bg);
+      color: var(--color-text-light);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    .contact input:focus,
+    .contact textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
     }
 
     .contact button {
-      background: #60a5fa;
-      color: #0f172a;
+      background: var(--color-primary);
+      color: var(--color-bg);
       border: none;
-      padding: 14px;
+      padding: 1rem;
       font-size: 1rem;
+      font-weight: 600;
       border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s ease;
@@ -178,86 +276,114 @@
       background: #3b82f6;
     }
 
+    /* --- Footer --- */
     footer {
       text-align: center;
-      padding: 30px 20px;
-      background: #1e293b;
-      color: #f1f5f9;
+      padding: 2rem 1.5rem;
+      background: var(--color-surface);
+      color: var(--color-text-dark);
       font-size: 0.95rem;
+      margin-top: 4rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Oke Oluwaseun</h1>
-    <p>Web Developer • PHP • Python • WordPress</p>
-  </header>
-
   <nav>
-    <a href="#about">About</a>
+    <a href="#hero">Home</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>
+  <section id="hero">
+    <h1>Oke Oluwaseun</h1>
+    <p class="subtitle">Web Developer • PHP • Python • WordPress</p>
+    <p class="about-text">
       I am a solution-focused web developer with expertise in PHP, Python, and WordPress. I build clean, dynamic, and purpose-driven websites that solve problems and deliver real results.
     </p>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
+  <section id="projects" class="container">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      
       <div class="project-card">
-        <img src="lbs.png" alt="LBS">
+        <img src="lbs.png" alt="Lagos Business School website screenshot">
         <div class="project-content">
           <h3>Lagos Business School</h3>
-          <p>The official website of the Lagos Business School built with PHP, WordPress and CSS.</p>
-          <a href="https://lbs.edu.ng" target="_blank">View Website</a>
+          <p>The official website of the Lagos Business School, built with a focus on usability and institutional prestige.</p>
+          <div class="project-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">CSS</span>
+          </div>
+          <a href="https://lbs.edu.ng" target="_blank">View Website &rarr;</a>
         </div>
       </div>
+      
       <div class="project-card">
-        <img src="rikka.png" alt="Rikka Group">
+        <img src="rikka.png" alt="Rikka Group website screenshot">
         <div class="project-content">
           <h3>Rikka Group</h3>
-          <p>A website for Rikka Group of Company.</p>
-          <a href="https://rikkagroup.com/" target="_blank">View Website</a>
+          <p>A sleek, professional website for Rikka Group of Company, highlighting their services and expertise.</p>
+          <div class="project-tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Corporate</span>
+          </div>
+          <a href="https://rikkagroup.com/" target="_blank">View Website &rarr;</a>
         </div>
       </div>
+      
       <div class="project-card">
-        <img src="cpsg.png" alt="CPSG">
+        <img src="cpsg.png" alt="CPSG website screenshot">
         <div class="project-content">
           <h3>Centre for Public Sector Governance</h3>
           <p>Website for a SCGN initiative focused on governance, leadership, and public sector reform.</p>
-          <a href="https://publicsecgov.org/about-cpsg-2" target="_blank">Visit Site</a>
+          <div class="project-tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Governance</span>
+          </div>
+          <a href="https://publicsecgov.org/about-cpsg-2" target="_blank">Visit Site &rarr;</a>
         </div>
       </div>
+      
     </div>
   </section>
 
-  <section id="skills" class="skills">
+  <section id="skills" class="container">
     <h2>My Skills</h2>
-    <div>
-      <span class="skill-badge">PHP</span>
-      <span class="skill-badge">Python</span>
-      <span class="skill-badge">WordPress</span>
-      <span class="skill-badge">JavaScript</span>
-      <span class="skill-badge">HTML5</span>
-      <span class="skill-badge">CSS3</span>
-      <span class="skill-badge">MySQL</span>
-      <span class="skill-badge">Git</span>
+    <div class="skills-container">
+      
+      <div class="skill-category">
+        <h3>Languages & Databases</h3>
+        <div class="skills-grid">
+          <span class="skill-badge">PHP</span>
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">HTML5</span>
+          <span class="skill-badge">CSS3</span>
+          <span class="skill-badge">MySQL</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Frameworks & Tools</h3>
+        <div class="skills-grid">
+          <span class="skill-badge">WordPress</span>
+          <span class="skill-badge">Git</span>
+          </div>
+      </div>
+      
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="container">
     <h2>Contact Me</h2>
     <form onsubmit="event.preventDefault(); alert('Message Sent!');">
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <textarea rows="6" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
