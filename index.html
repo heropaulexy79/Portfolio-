@@ -239,34 +239,37 @@
       margin: auto;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 18px;
     }
 
     .contact input,
     .contact textarea {
-      padding: 1rem;
+      padding: 15px; /* Slightly more padding */
       border-radius: 10px;
       border: 1px solid #475569;
       font-size: 1rem;
-      background: var(--color-bg);
-      color: var(--color-text-light);
-      transition: border-color 0.3s, box-shadow 0.3s;
+      background: #0f172a;
+      color: #f8fafc;
+      transition: border-color 0.3s, box-shadow 0.3s; /* Added transitions */
     }
-    
+
+    /* --- ADD THIS --- */
+    /* This adds the blue glow when you click on a field */
     .contact input:focus,
     .contact textarea:focus {
       outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+      border-color: #60a5fa; /* Blue border on focus */
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3); /* Blue glow */
     }
+    /* --- END ADD THIS --- */
 
     .contact button {
-      background: var(--color-primary);
-      color: var(--color-bg);
+      background: #60a5fa;
+      color: #0f172a;
       border: none;
-      padding: 1rem;
+      padding: 15px; /* Matching padding */
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 600; /* Made button text bolder */
       border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s ease;
@@ -275,7 +278,6 @@
     .contact button:hover {
       background: #3b82f6;
     }
-
     /* --- Footer --- */
     footer {
       text-align: center;
